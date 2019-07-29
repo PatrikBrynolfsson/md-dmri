@@ -58,7 +58,7 @@ if (opt.dtd_covariance.do_post_fit_masking)
     
     snr = mfs.m(:,:,:,1) ./ res;
     
-    dps.mask_param = mio_mask_fill(mio_smooth_4d(snr, 1.5) > 50);
+    dps.mask_param = mio_mask_fill(mio_smooth_4d(snr, 1.5) > opt.dtd_covariance.post_fit_masking_snr_thr);
     
     f = fieldnames(dps);
     for c = 1:numel(f)
